@@ -12,12 +12,12 @@ const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (rm) document.documentElement.classList.add('rm');
 
 // Her 3D bölüm bağımsız; biri başarısız olursa sayfa yine çalışır.
-[['hero', initHero], ['process', initProcess], ['viewer', initViewer], ['map', initMap]].forEach(([name, fn]) => {
-  try { fn(rm); } catch (e) {
-    console.warn(`3D bölüm yüklenemedi: ${name}`, e);
+Promise.all([['hero', initHero], ['process', initProcess], ['viewer', initViewer], ['map', initMap]].map(async ([name, fn]) => {
+  try { await fn(rm); } catch (e) {
+    console.warn('3D bölüm yüklenemedi: ' + name, e);
     document.documentElement.classList.add('no-webgl');
   }
-});
+})).then(() => ScrollTrigger.refresh());
 
 // Gösterim animasyonları
 if (!rm) {

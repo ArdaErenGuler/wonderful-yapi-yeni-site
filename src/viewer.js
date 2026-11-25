@@ -1,3 +1,4 @@
+import { loadAssets } from './assets.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { createStage, addLights } from './stage.js';
@@ -15,7 +16,8 @@ export const PROJECTS = [
   { id: 9, ad: 'Kepez', yer: 'Kepez / Antalya', il: 'Antalya', birim: '44 Gecekondu', oldN: 44, towers: 2, floors: 6 },
 ];
 
-export function initViewer() {
+export async function initViewer() {
+  await loadAssets();
   const canvas = document.getElementById('viewCanvas');
   const list = document.getElementById('projList');
   const slider = document.getElementById('baSlider');
@@ -27,6 +29,8 @@ export function initViewer() {
   const { renderer, camera } = stage;
   const sceneB = new THREE.Scene(); // önce
   addLights(sceneB);
+  sceneB.environment = stage.env;
+  sceneB.environmentIntensity = 0.45;
   const sceneA = stage.scene;       // sonra
 
   const controls = new OrbitControls(camera, canvas);

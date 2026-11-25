@@ -1,3 +1,4 @@
+import { loadAssets } from './assets.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createStage } from './stage.js';
 import { createSite, heroLayout } from './buildings.js';
@@ -10,7 +11,8 @@ const STAGES = [
   { k: '03 · Yeni yaşam', t: 'Güvenli, yeni yapı yükselir', d: 'Proje, uygulama ve teslim tek merkezden takip edilir.' },
 ];
 
-export function initHero(rm) {
+export async function initHero(rm) {
+  await loadAssets();
   const canvas = document.getElementById('heroCanvas');
   const wide = () => window.innerWidth >= 900;
   const stage = createStage(canvas, {

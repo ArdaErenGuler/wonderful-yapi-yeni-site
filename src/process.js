@@ -1,10 +1,12 @@
+import { loadAssets } from './assets.js';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createStage } from './stage.js';
 import { createSite, heroLayout } from './buildings.js';
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
-export function initProcess(rm) {
+export async function initProcess(rm) {
+  await loadAssets();
   const canvas = document.getElementById('processCanvas');
   const stage = createStage(canvas, { cam: [6, 4, 7.5], target: [0, 1.7, 0], fov: 36 });
   const layout = heroLayout();
