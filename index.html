@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wonderful Yapı | Ankara Kentsel Dönüşüm, İnşaat ve Mimarlık</title>
   <meta name="description" content="2013'ten beri Ankara merkezli kentsel dönüşüm, riskli yapı tespiti, proje geliştirme ve anahtar teslim inşaat. Sürecin tamamı tek merkezden, şeffaf yönetilir." />
-  <meta name="theme-color" content="#0f1b2d" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230f1b2d%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 font-weight=%27800%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27%3EW%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230a0a0b%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 font-weight=%27800%27 text-anchor=%27middle%27 fill=%27%23c9a24b%27 font-family=%27sans-serif%27%3EW%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -35,26 +35,19 @@
 <main id="icerik">
   <!-- HERO -->
   <section id="hero" class="hero" aria-label="Giriş">
-    <div class="pin">
-      <div class="canvas-wrap"><canvas id="heroCanvas" aria-hidden="true"></canvas></div>
-      <div class="hero-copy">
-        <p class="eyebrow">2013'ten bu yana güvenli yapı ve dönüşüm süreçleri</p>
-        <h1>Kentsel dönüşümde <em>güvenli yapılar,</em> güçlü gelecekler.</h1>
-        <p class="lead">Yapı ve parsel analizinden teknik raporlamaya, hak sahibi süreç yönetiminden mimari-mühendislik projelerine kadar dönüşüm sürecini tek merkezden koordine ediyoruz.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#basvuru">Başvuruyu Başlat</a>
-          <a class="btn btn-ghost" href="#surec">A'dan Z'ye Süreci İncele</a>
-        </div>
-        <ul class="badges"><li>Ankara merkezli</li><li>Tek merkezden takip</li><li>Şeffaf süreç</li></ul>
+    <img class="hero-bg" data-photo="hero" alt="" fetchpriority="high" />
+    <div class="hero-shade"></div>
+    <div class="hero-copy">
+      <p class="eyebrow">2013'ten bu yana güvenli yapı ve dönüşüm süreçleri</p>
+      <h1>Kentsel dönüşümde <em>güvenli yapılar,</em> güçlü gelecekler.</h1>
+      <p class="lead">Yapı ve parsel analizinden teknik raporlamaya, hak sahibi süreç yönetiminden mimari-mühendislik projelerine kadar dönüşüm sürecini tek merkezden koordine ediyoruz.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#basvuru">Başvuruyu Başlat</a>
+        <a class="btn btn-ghost" href="#surec">A'dan Z'ye Süreci İncele</a>
       </div>
-      <div class="hero-stage" id="heroStage" data-i="0" aria-live="polite">
-        <span class="k">01 · Mevcut durum</span>
-        <strong class="t">Riskli yapı tespit edilir</strong>
-        <span class="d">Yapı ve parsel analiziyle risk net biçimde ortaya konur.</span>
-        <i class="bar"><b id="heroBar"></b></i>
-      </div>
-      <div class="scroll-hint" aria-hidden="true">Kaydırın</div>
+      <ul class="badges"><li>Ankara merkezli</li><li>Tek merkezden takip</li><li>Şeffaf süreç</li></ul>
     </div>
+    <div class="scroll-hint" aria-hidden="true">Kaydırın</div>
   </section>
 
   <!-- RAKAMLAR -->
@@ -83,9 +76,20 @@
           <li class="step"><i>06</i><div><h3>Teslim</h3><p>Yapı, belgeleriyle birlikte hak sahiplerine güvenle teslim edilir.</p></div></li>
         </ol>
       </div>
-      <div class="proc-stage"><div class="canvas-wrap"><canvas id="processCanvas" aria-hidden="true"></canvas></div></div>
+      <div class="proc-stage">
+        <div class="proc-frame">
+          <img data-photo="p1" alt="" class="on" /><img data-photo="p2" alt="" /><img data-photo="p3" alt="" /><img data-photo="p4" alt="" /><img data-photo="p5" alt="" /><img data-photo="p6" alt="" />
+          <span class="proc-no" id="procNo">01</span>
+        </div>
+      </div>
     </div>
   </section>
+  <section class="band" aria-label="Vizyon">
+    <img data-photo="banner" alt="" loading="lazy" />
+    <div class="band-shade"></div>
+    <div class="wrap"><p class="eyebrow">Vizyonumuz</p><p class="band-q">Güvenli ve modern şehirleşme için nitelikli projeler geliştirmek; insan hayatını önceleyen ve uzun yıllar güvenle kullanılabilecek yapılar üretmek.</p></div>
+  </section>
+
 
   <!-- HİZMETLER -->
   <section id="hizmetler" class="section" aria-label="Hizmetler">
@@ -114,18 +118,18 @@
     <div class="wrap">
       <p class="eyebrow reveal">Öne çıkan projeler</p>
       <h2 class="reveal">Önce ve sonra, <em>üç boyutlu</em></h2>
-      <p class="sub reveal">Bir proje seçin, kaydırıcıyı sürükleyin; modeli fareyle veya parmakla döndürün.</p>
+      <p class="sub reveal">Bir proje seçin ve kaydırıcıyı sürükleyerek mevcut durum ile dönüşüm sonrasını karşılaştırın.</p>
       <div class="viewer">
         <div class="proj-list" id="projList" role="group" aria-label="Proje listesi"></div>
         <div class="v-main">
           <div class="v-head"><h3 id="projTitle"></h3><p id="projMeta" class="meta"></p></div>
           <div class="v-stage">
-            <div class="canvas-wrap"><canvas id="viewCanvas" aria-label="Seçili projenin üç boyutlu önce ve sonra görünümü"></canvas></div>
+            <img id="imgBefore" class="v-img" alt="" decoding="async" /><img id="imgAfter" class="v-img" alt="" decoding="async" />
             <i id="baLine" class="ba-line" aria-hidden="true"></i>
             <span class="tag l">Önce</span><span class="tag r">Sonra</span>
           </div>
           <label class="ba"><span class="sr">Önce / sonra kaydırıcısı</span><input id="baSlider" type="range" min="0" max="100" value="50" /></label>
-          <p class="fine">Şematik 3D gösterimdir; yapı sayısı, kat adedi ve ölçekler gerçek proje çizimlerini temsil etmez. Çok sayıda gecekondu içeren projelerde yapıların bir bölümü gösterilir.</p>
+          <p class="fine">Örnek görsellerdir; gerçek proje fotoğrafları geldiğinde bu projelerin kendi önce/sonra fotoğraflarıyla değiştirilecek.</p>
         </div>
       </div>
     </div>
@@ -186,6 +190,7 @@
 
   <!-- HAKKIMIZDA -->
   <section id="hakkimizda" class="section" aria-label="Hakkımızda">
+    <div class="wrap"><figure class="about-img reveal"><img data-photo="about" alt="" loading="lazy" /></figure></div>
     <div class="wrap about">
       <div>
         <p class="eyebrow reveal">Hakkımızda</p>
@@ -237,6 +242,7 @@
       <p><a class="btn btn-wa" href="https://wa.me/905365143836" target="_blank" rel="noopener">WhatsApp ile iletişim</a></p>
     </div>
   </div>
+  <details class="credits wrap"><summary>Demo görsel kaynakları</summary><p>Sitedeki fotoğraflar tasarım demosu içindir ve gerçek proje fotoğraflarıyla değiştirilecektir. Kaynak ve lisanslar:</p><ul id="credits"></ul></details>
   <p class="copy wrap">© 2026 Wonderful Yapı İnşaat Kentsel Dönüşüm Mühendislik Mimarlık Taahhüt İthalat ve İhracat Sanayi Ticaret LTD. ŞTİ. Tüm hakları saklıdır.</p>
 </footer>
 

@@ -22,8 +22,8 @@ export function initMap() {
   // Türkiye
   const polys = turkey.features[0].geometry;
   const rings = polys.type === 'Polygon' ? [polys.coordinates[0]] : polys.coordinates.map((p) => p[0]);
-  const landMat = new THREE.MeshStandardMaterial({ color: 0xe9e3d6, roughness: 1 });
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x0f1b2d, transparent: true, opacity: 0.55 });
+  const landMat = new THREE.MeshStandardMaterial({ color: 0x1d1d21, roughness: 1 });
+  const lineMat = new THREE.LineBasicMaterial({ color: 0xc9a24b, transparent: true, opacity: 0.85 });
   rings.forEach((ring) => {
     const shape = new THREE.Shape(ring.map(([lo, la]) => new THREE.Vector2(...proj(lo, la))));
     const geo = new THREE.ExtrudeGeometry(shape, { depth: 0.12, bevelEnabled: false });
@@ -39,7 +39,7 @@ export function initMap() {
   for (let x = -14; x <= 14; x += 0.7) for (let z = -8; z <= 8; z += 0.7) dots.push(x, -0.02, z);
   const dg = new THREE.BufferGeometry();
   dg.setAttribute('position', new THREE.Float32BufferAttribute(dots, 3));
-  scene.add(new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xc9c1b1, size: 0.05 })));
+  scene.add(new THREE.Points(dg, new THREE.PointsMaterial({ color: 0x3a3a40, size: 0.05 })));
 
   // şehirler
   const world = CITIES.map((c) => {
@@ -52,13 +52,13 @@ export function initMap() {
     const h = 0.25 + c.n * 0.12;
     const pin = new THREE.Mesh(
       new THREE.CylinderGeometry(0.06 + c.n * 0.012, 0.06 + c.n * 0.012, h, 16),
-      new THREE.MeshStandardMaterial({ color: c.id === 'ankara' ? 0xe4572e : 0x0f1b2d, roughness: 0.4 })
+      new THREE.MeshStandardMaterial({ color: c.id === 'ankara' ? 0xc9a24b : 0xf3efe6, roughness: 0.4 })
     );
     pin.position.copy(c.pos).add(new THREE.Vector3(0, h / 2, 0));
     scene.add(pin);
     const ring = new THREE.Mesh(
       new THREE.RingGeometry(0.1, 0.13, 40),
-      new THREE.MeshBasicMaterial({ color: 0xe4572e, transparent: true, side: THREE.DoubleSide })
+      new THREE.MeshBasicMaterial({ color: 0xc9a24b, transparent: true, side: THREE.DoubleSide })
     );
     ring.rotation.x = -Math.PI / 2;
     ring.position.copy(c.pos).add(new THREE.Vector3(0, 0.02, 0));
@@ -80,7 +80,7 @@ export function initMap() {
     mid.y += ank.pos.distanceTo(c.pos) * 0.35;
     const curve = new THREE.QuadraticBezierCurve3(ank.pos.clone(), mid, c.pos.clone());
     const geo = new THREE.TubeGeometry(curve, 64, 0.016, 4, false);
-    const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: 0xe4572e }));
+    const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color: 0xc9a24b }));
     scene.add(m);
     arcs.push({ m, total: geo.index.count });
   });

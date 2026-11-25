@@ -1,10 +1,25 @@
 import './style.css';
+import './photos.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHero } from './hero.js';
 import { initProcess } from './process.js';
 import { initViewer } from './viewer.js';
 import { initMap } from './map.js';
+import photos from './photos.json';
+
+// Fotoğrafları manifestten yerleştir (gerçek fotoğraflar için src/photos.json yeterli)
+const base = import.meta.env.BASE_URL;
+document.querySelectorAll('[data-photo]').forEach((el) => {
+  const p = photos[el.dataset.photo]; if (!p) return;
+  el.src = base + p.src; if (!el.alt) el.alt = p.alt || '';
+});
+const cl = document.getElementById('credits');
+if (cl) {
+  const seen = new Set();
+  Object.values(photos).filter((p) => p.placeholder && p.credit && !seen.has(p.src) && seen.add(p.src))
+    .forEach((p) => { const li = document.createElement('li'); li.innerHTML = '<a href="' + p.page + '" target="_blank" rel="noopener">' + p.alt + '</a> — ' + p.credit; cl.appendChild(li); });
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
