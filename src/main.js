@@ -5,7 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHero } from './hero.js';
 import { initProcess } from './process.js';
 import { initViewer } from './viewer.js';
-import { initMap } from './map.js';
+// Harita three.js kullanır; ilk açılışı hızlandırmak için ayrı dosyada yüklenir
+const initMap = async (rm) => (await import('./map.js')).initMap(rm);
 import photos from './photos.json';
 
 // Fotoğrafları manifestten yerleştir (gerçek fotoğraflar için src/photos.json yeterli)
@@ -23,7 +24,8 @@ if (cl) {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// ?motion=1 → "hareketi azalt" ayarı açık cihazlarda da animasyonları test etmek için
+const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !new URLSearchParams(location.search).has('motion');
 if (rm) document.documentElement.classList.add('rm');
 
 // Her 3D bölüm bağımsız; biri başarısız olursa sayfa yine çalışır.
@@ -63,6 +65,20 @@ document.getElementById('menuBtn').addEventListener('click', (e) => {
   e.currentTarget.setAttribute('aria-expanded', open);
 });
 nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
+
+// Üst menü: kaydırınca koyu zemin + aktif bölüm çizgisi
+const top = document.querySelector('.top');
+const onScroll = () => top.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+const links = [...nav.querySelectorAll('a[href^="#"]')];
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((en) => {
+    if (!en.isIntersecting) return;
+    links.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+links.forEach((a) => { const s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
 
 // Ön değerlendirme hesaplayıcı
 const form = document.getElementById('calc');

@@ -9,7 +9,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%230a0a0b%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 font-weight=%27800%27 text-anchor=%27middle%27 fill=%27%23c9a24b%27 font-family=%27sans-serif%27%3EW%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/flow/hero-eski.webp" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"GeneralContractor","name":"Wonderful Yapı","foundingDate":"2013-12","telephone":"+905365143836","email":"wonderfulyapikentsel@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Konutkent Mah. Dumlupınar Bulvarı No:399 Elya Center Kat 18 Daire 67","addressLocality":"Çankaya","addressRegion":"Ankara","postalCode":"06810","addressCountry":"TR"}}
   </script>
@@ -20,6 +21,7 @@
 <header class="top">
   <a class="logo" href="#hero" aria-label="Wonderful Yapı ana sayfa"><span class="mark">W</span><span>Wonderful<small>Yapı</small></span></a>
   <nav id="nav" aria-label="Ana menü">
+    <a href="#hero">Ana Sayfa</a>
     <a href="#surec">Süreç</a>
     <a href="#hizmetler">Hizmetler</a>
     <a href="#projeler">Projeler</a>
@@ -35,19 +37,37 @@
 <main id="icerik">
   <!-- HERO -->
   <section id="hero" class="hero" aria-label="Giriş">
-    <img class="hero-bg" data-photo="hero" alt="" fetchpriority="high" />
-    <div class="hero-shade"></div>
-    <div class="hero-copy">
-      <p class="eyebrow">2013'ten bu yana güvenli yapı ve dönüşüm süreçleri</p>
-      <h1>Kentsel dönüşümde <em>güvenli yapılar,</em> güçlü gelecekler.</h1>
-      <p class="lead">Yapı ve parsel analizinden teknik raporlamaya, hak sahibi süreç yönetiminden mimari-mühendislik projelerine kadar dönüşüm sürecini tek merkezden koordine ediyoruz.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#basvuru">Başvuruyu Başlat</a>
-        <a class="btn btn-ghost" href="#surec">A'dan Z'ye Süreci İncele</a>
+    <div class="hero-pin">
+      <div class="hero-art" id="heroArt">
+        <img class="h-old" src="/flow/hero-eski.webp" alt="Dönüşüm öncesi: yıpranmış eski apartman" fetchpriority="high" />
+        <img class="h-new" src="/flow/hero-yeni.webp" alt="Dönüşüm sonrası: ışıkları yanan modern konut binası" />
+        <i class="h-scan" aria-hidden="true"></i>
       </div>
-      <ul class="badges"><li>Ankara merkezli</li><li>Tek merkezden takip</li><li>Şeffaf süreç</li></ul>
+      <canvas id="dust" class="h-dust" aria-hidden="true"></canvas>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Kentsel dönüşüm · 2013'ten beri</p>
+        <h1><span>Güvenli</span><span class="gold">Yarınlar</span></h1>
+        <i class="rule" aria-hidden="true"></i>
+        <p class="lead">Riskli yapı tespitinden anahtar teslimine kadar dönüşüm sürecinin tamamını tek merkezden, şeffaf ve güvenle yönetiyoruz.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#basvuru">Başvuruyu Başlat <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-ghost" href="#surec">Süreci İncele</a>
+        </div>
+      </div>
+      <div class="h-social">
+        <span>Bize ulaşın</span><i aria-hidden="true"></i>
+        <a href="tel:+905365143836" aria-label="Telefon ile arayın"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></a>
+        <a href="https://wa.me/905365143836" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.2z" fill="currentColor"/></svg></a>
+        <a href="mailto:wonderfulyapikentsel@gmail.com" aria-label="E-posta gönderin"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+      </div>
+      <ol class="h-index" aria-hidden="true">
+        <li class="on"><b>01</b>Önce</li>
+        <li class="h-bar"><b></b></li>
+        <li><b>02</b>Sonra</li>
+      </ol>
+      <div class="h-scroll" aria-hidden="true">Dönüşümü görmek için kaydırın <span></span></div>
     </div>
-    <div class="scroll-hint" aria-hidden="true">Kaydırın</div>
   </section>
 
   <!-- RAKAMLAR -->
@@ -78,7 +98,8 @@
       </div>
       <div class="proc-stage">
         <div class="proc-frame">
-          <img data-photo="p1" alt="" class="on" /><img data-photo="p2" alt="" /><img data-photo="p3" alt="" /><img data-photo="p4" alt="" /><img data-photo="p5" alt="" /><img data-photo="p6" alt="" />
+          <video id="procVideo" muted playsinline preload="auto" poster="/flow/surec-poster.jpg" aria-label="Eski binanın yıkılıp yerine yeni yapının yükselişini gösteren hızlandırılmış video"><source src="/flow/surec.mp4" type="video/mp4" /></video>
+          <img id="procFinal" src="/flow/hero-yeni.webp" alt="Teslim edilen modern konut binası" loading="lazy" />
           <span class="proc-no" id="procNo">01</span>
         </div>
       </div>
@@ -117,8 +138,8 @@
   <section id="projeler" class="section dark" aria-label="Öne çıkan projeler">
     <div class="wrap">
       <p class="eyebrow reveal">Öne çıkan projeler</p>
-      <h2 class="reveal">Önce ve sonra, <em>üç boyutlu</em></h2>
-      <p class="sub reveal">Bir proje seçin ve kaydırıcıyı sürükleyerek mevcut durum ile dönüşüm sonrasını karşılaştırın.</p>
+      <h2 class="reveal">Önce ve <em>sonra</em></h2>
+      <p class="sub reveal">Bir proje seçin, görselin üzerinde sürükleyerek mevcut durum ile dönüşüm sonrasını karşılaştırın.</p>
       <div class="viewer">
         <div class="proj-list" id="projList" role="group" aria-label="Proje listesi"></div>
         <div class="v-main">
@@ -129,7 +150,7 @@
             <span class="tag l">Önce</span><span class="tag r">Sonra</span>
           </div>
           <label class="ba"><span class="sr">Önce / sonra kaydırıcısı</span><input id="baSlider" type="range" min="0" max="100" value="50" /></label>
-          <p class="fine">Örnek görsellerdir; gerçek proje fotoğrafları geldiğinde bu projelerin kendi önce/sonra fotoğraflarıyla değiştirilecek.</p>
+          <p class="fine">Görseller temsilidir; projelerin gerçek önce/sonra fotoğrafları ile güncellenecektir.</p>
         </div>
       </div>
     </div>
